@@ -1,11 +1,36 @@
 <template>
   <LetterIcon @clicked="showLetter" />
   <div class="sections">
-    <button>Intro</button>
-    <button>Studies</button>
-    <button>Work</button>
-    <button>Love</button>
-    <button>Health</button>
+    <button
+      @click="sectionClicked('i')"
+      :class="{ 'i-clicked': isIntro, addTransition: isAnimFinish }"
+    >
+      Intro
+    </button>
+    <button
+      @click="sectionClicked('s')"
+      :class="{ 's-clicked': isStudies, addTransition: isAnimFinish }"
+    >
+      Studies
+    </button>
+    <button
+      @click="sectionClicked('w')"
+      :class="{ 'w-clicked': isWork, addTransition: isAnimFinish }"
+    >
+      Work
+    </button>
+    <button
+      @click="sectionClicked('l')"
+      :class="{ 'l-clicked': isLove, addTransition: isAnimFinish }"
+    >
+      Love
+    </button>
+    <button
+      @click="sectionClicked('h')"
+      :class="{ 'h-clicked': isHealth, addTransition: isAnimFinish }"
+    >
+      Health
+    </button>
   </div>
   <transition name="moveup">
     <Letter v-if="isIconClick" />
@@ -26,16 +51,55 @@ export default {
     return {
       isIconClick: false,
       tl: null,
+      isIntro: false,
+      isStudies: false,
+      isWork: false,
+      isLove: false,
+      isHealth: false,
+      isAnimFinish: false,
     };
   },
   methods: {
+    sectionClicked(section) {
+      this.isIntro =
+        this.isStudies =
+        this.isWork =
+        this.isLove =
+        this.isHealth =
+          false;
+      switch (section) {
+        case "i":
+          this.isIntro = true;
+          break;
+        case "s":
+          this.isStudies = true;
+          break;
+        case "w":
+          this.isWork = true;
+          break;
+        case "l":
+          this.isLove = true;
+          break;
+        default:
+          this.isHealth = true;
+          break;
+      }
+
+      console.log(this.isIntro);
+    },
     showLetter() {
       setTimeout(() => {
         this.isIconClick = true;
       }, 4000);
       setTimeout(() => {
         this.tl.resume();
-      }, 4800);
+        this.$nextTick(() => {
+          this.isIntro = true;
+        });
+      }, 5000);
+      setTimeout(() => {
+        this.isAnimFinish = true;
+      }, 7000);
     },
   },
   mounted() {
@@ -49,7 +113,6 @@ export default {
     });
     tl.pause();
     this.tl = tl;
-
   },
 };
 </script>
@@ -67,6 +130,7 @@ export default {
 
 body {
   overflow-x: hidden;
+  background: #fcf4f2;
 }
 
 #app {
@@ -92,27 +156,56 @@ body {
   button {
     border-radius: 2rem;
     padding: 0.5em 2em;
-    border: 1px solid #4484f4;
-    background: white;
+    border: none;
     font-family: "Yomogi", cursive;
     font-size: 1em;
     font-weight: 500;
     color: black;
     cursor: pointer;
+    display: block;
+
+    &:nth-child(1) {
+      background: rgba(68, 132, 244, 0.5);
+    }
 
     &:nth-child(2) {
-      border: 1px solid #7ed448;
+      background: rgba(126, 212, 72, 0.5);
     }
     &:nth-child(3) {
-      border: 1px solid #f1ad3e;
+      background: rgba(241, 173, 62, 0.5);
     }
     &:nth-child(4) {
-      border: 1px solid #e962ac;
+      background: rgba(233, 98, 172, 0.5);
     }
     &:nth-child(5) {
-      border: 1px solid #ae49d6;
+      background: rgba(174, 73, 214, 0.5);
     }
   }
+}
+
+.i-clicked {
+  border: 2px solid rgba(68, 132, 244, 1) !important;
+  transform: translate(30px) !important;
+}
+.s-clicked {
+  border: 2px solid rgba(126, 212, 72, 1) !important;
+  transform: translate(30px) !important;
+}
+.w-clicked {
+  border: 2px solid rgba(241, 173, 62, 1) !important ;
+  transform: translate(30px) !important;
+}
+.l-clicked {
+  border: 2px solid rgba(233, 98, 172, 1) !important ;
+  transform: translate(30px) !important;
+}
+.h-clicked {
+  border: 2px solid rgba(174, 73, 214, 1) !important;
+  transform: translate(30px) !important;
+}
+
+.addTransition {
+  transition: transform 0.5s ease;
 }
 
 .moveup-enter-active {

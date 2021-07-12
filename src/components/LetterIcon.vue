@@ -13,11 +13,16 @@
     ref="letter"
     @click="moveLetter"
   >
-    <div class="fold-wrap" :class="{ 'fold-wrap-transition': isAnimation}">
+    <div class="fold-wrap" :class="{ 'fold-wrap-transition': isAnimation }">
       <div class="fold"></div>
     </div>
-    <div class="msg-wrap" :class="{ 'load-ready': isLoad, 'msg-wrap-transition': isAnimation }">
-      <div class="msg" :class="{'msg-transition': isAnimation}">Hi Joanna</div>
+    <div
+      class="msg-wrap"
+      :class="{ 'load-ready': isLoad, 'msg-wrap-transition': isAnimation }"
+    >
+      <div class="msg" :class="{ 'msg-transition': isAnimation }">
+        Hi Joanna
+      </div>
     </div>
     <div class="inside-wrap">
       <div class="inside"></div>
