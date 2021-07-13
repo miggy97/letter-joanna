@@ -130,7 +130,8 @@ export default {
 
 body {
   overflow-x: hidden;
-  background: #fcf4f2;
+  background-color: #fcf4f2;
+  background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
 }
 
 #app {
@@ -220,38 +221,43 @@ body {
     }
 
     &:nth-child(1) {
-      background: rgba(68, 132, 244, 0.4);
+      background: #b0c5ee;
+      background-image: url("https://www.transparenttextures.com/patterns/lined-paper-2.png");
       &:after {
-        background-color: rgba(68, 132, 244, 0.4);
+        background-color: #b0c5ee;
         bottom: -2px;
       }
     }
 
     &:nth-child(2) {
-      background: rgba(126, 212, 72, 0.4);
+      background: #c9e7ae;
+      background-image: url("https://www.transparenttextures.com/patterns/lined-paper-2.png");
       &:after {
-        background-color: rgba(126, 212, 72, 0.4);
+        background-color: #c9e7ae;
         bottom: -2px;
       }
     }
     &:nth-child(3) {
-      background: rgba(241, 173, 62, 0.4);
+      background: #f7d7aa;
+      background-image: url("https://www.transparenttextures.com/patterns/lined-paper-2.png");
       &:after {
-        background-color: rgba(241, 173, 62, 0.4);
+        background-color: #f7d7aa;
         bottom: -2px;
       }
     }
     &:nth-child(4) {
-      background: rgba(233, 98, 172, 0.4);
+      background: #f4b9d6;
+      background-image: url("https://www.transparenttextures.com/patterns/lined-paper-2.png");
       &:after {
-        background-color: rgba(233, 98, 172, 0.4);
+        background-color: #f4b9d6;
         bottom: -2px;
       }
     }
     &:nth-child(5) {
-      background: rgba(174, 73, 214, 0.4);
+      background: #ddafe7;
+      background-image: url("https://www.transparenttextures.com/patterns/lined-paper-2.png");
       &:after {
-        background-color: rgba(174, 73, 214, 0.4);
+        background-color: #ddafe7;
         bottom: -2px;
       }
     }

@@ -2,7 +2,7 @@
   <lottie-player
     v-if="isClick"
     class="bubble-lottie"
-    src="https://assets8.lottiefiles.com/packages/lf20_lpzvxkgf.json"
+    src="https://assets3.lottiefiles.com/packages/lf20_swdqej6v.json"
     background="transparent"
     speed="1"
     autoplay
@@ -90,7 +90,7 @@ export default {
   // }
   // &:hover .fold-wrap {
   //   transform: scaleY(-1);
-  //   filter: drop-shadow(0px -1px 0px #4484f4);
+  //   filter: drop-shadow(0px -1px 0px #7ea9ff);
   //   transition: transform 0.4s ease 0s;
   // }
   // &:hover .msg-wrap {
@@ -108,7 +108,8 @@ export default {
     .fold {
       width: 8em;
       height: 5.25em;
-      background: #4484f4;
+      background: #7ea9ff;
+      background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
       clip-path: polygon(50% 50%, 0 0, 100% 0);
       border-radius: 3px;
     }
@@ -122,7 +123,8 @@ export default {
     .inside {
       width: 8em;
       height: 5.25em;
-      background: #3774de;
+      background: #7ea9ff;
+      background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
       clip-path: polygon(50% 50%, 0 0, 100% 0);
       border-radius: 3px;
     }
@@ -151,7 +153,8 @@ export default {
   .body {
     width: 100%;
     height: 100%;
-    background: #4484f4;
+    background: #7ea9ff;
+    background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
     border-radius: 3px;
 
     p {
@@ -180,7 +183,7 @@ export default {
 }
 .fold-wrap-transition {
   transform: scaleY(-1);
-  filter: drop-shadow(0px -1px 0px #4484f4);
+  filter: drop-shadow(0px -1px 0px #7ea9ff);
   transition: transform 0.4s ease 0.5s;
 }
 .msg-wrap-transition {

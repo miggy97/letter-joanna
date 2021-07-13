@@ -26,7 +26,8 @@ export default {
 .letter {
   width: 50%;
   height: 90vh;
-  background: #fdfeff;
+  background-color: #fdfeff;
+  background-image: url("https://www.transparenttextures.com/patterns/lined-paper-2.png");
   border-radius: 5px;
   box-shadow: 0px 0px 5px rgba($color: #b8b1b0, $alpha: 0.4);
   position: relative;
