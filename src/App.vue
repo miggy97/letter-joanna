@@ -5,31 +5,31 @@
       @click="sectionClicked('i')"
       :class="{ 'i-clicked': isIntro, addTransition: isAnimFinish }"
     >
-      Intro
+      Intro <span></span>
     </button>
     <button
       @click="sectionClicked('s')"
       :class="{ 's-clicked': isStudies, addTransition: isAnimFinish }"
     >
-      Studies
+      Studies <span></span>
     </button>
     <button
       @click="sectionClicked('w')"
       :class="{ 'w-clicked': isWork, addTransition: isAnimFinish }"
     >
-      Work
+      Work <span></span>
     </button>
     <button
       @click="sectionClicked('l')"
       :class="{ 'l-clicked': isLove, addTransition: isAnimFinish }"
     >
-      Love
+      Love <span></span>
     </button>
     <button
       @click="sectionClicked('h')"
       :class="{ 'h-clicked': isHealth, addTransition: isAnimFinish }"
     >
-      Health
+      Health <span></span>
     </button>
   </div>
   <transition name="moveup">
@@ -154,8 +154,9 @@ body {
   flex-direction: column;
   gap: 2em;
   button {
-    border-radius: 2rem;
+    border-radius: 2px;
     padding: 0.5em 2em;
+    // border: 2px solid #fcf4f2;
     border: none;
     font-family: "Yomogi", cursive;
     font-size: 1em;
@@ -163,49 +164,123 @@ body {
     color: black;
     cursor: pointer;
     display: block;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0.35rem;
+      top: 0.7rem;
+      width: 0.6rem;
+      height: 0.6rem;
+      border-radius: 50%;
+      background: #fcf4f2;
+      box-shadow: inset 0 2px 2px 1px rgba(184, 177, 176, 0.5);
+    }
+
+    &:after {
+      content: "";
+      height: 2px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      clip-path: polygon(
+        0% 0%,
+        5% 100%,
+        10% 0%,
+        15% 100%,
+        20% 0%,
+        25% 100%,
+        30% 0%,
+        35% 100%,
+        40% 0%,
+        45% 100%,
+        50% 0%,
+        55% 100%,
+        60% 0%,
+        65% 100%,
+        70% 0%,
+        75% 100%,
+        80% 0%,
+        85% 100%,
+        90% 0%,
+        95% 100%,
+        100% 0%
+      );
+    }
+
+    span {
+      position: absolute;
+      height: 100%;
+      width: 1.2px;
+      position: absolute;
+      background: #dea5a4;
+      left: 1.3em;
+      top: 0;
+    }
 
     &:nth-child(1) {
-      background: rgba(68, 132, 244, 0.5);
+      background: rgba(68, 132, 244, 0.4);
+      &:after {
+        background-color: rgba(68, 132, 244, 0.4);
+        bottom: -2px;
+      }
     }
 
     &:nth-child(2) {
-      background: rgba(126, 212, 72, 0.5);
+      background: rgba(126, 212, 72, 0.4);
+      &:after {
+        background-color: rgba(126, 212, 72, 0.4);
+        bottom: -2px;
+      }
     }
     &:nth-child(3) {
-      background: rgba(241, 173, 62, 0.5);
+      background: rgba(241, 173, 62, 0.4);
+      &:after {
+        background-color: rgba(241, 173, 62, 0.4);
+        bottom: -2px;
+      }
     }
     &:nth-child(4) {
-      background: rgba(233, 98, 172, 0.5);
+      background: rgba(233, 98, 172, 0.4);
+      &:after {
+        background-color: rgba(233, 98, 172, 0.4);
+        bottom: -2px;
+      }
     }
     &:nth-child(5) {
-      background: rgba(174, 73, 214, 0.5);
+      background: rgba(174, 73, 214, 0.4);
+      &:after {
+        background-color: rgba(174, 73, 214, 0.4);
+        bottom: -2px;
+      }
     }
   }
 }
 
 .i-clicked {
-  border: 2px solid rgba(68, 132, 244, 1) !important;
+  // border: 2px solid rgba(68, 132, 244, 1) !important;
   transform: translate(30px) !important;
 }
 .s-clicked {
-  border: 2px solid rgba(126, 212, 72, 1) !important;
+  // border: 2px solid rgba(126, 212, 72, 1) !important;
   transform: translate(30px) !important;
 }
 .w-clicked {
-  border: 2px solid rgba(241, 173, 62, 1) !important ;
+  // border: 2px solid rgba(241, 173, 62, 1) !important ;
   transform: translate(30px) !important;
 }
 .l-clicked {
-  border: 2px solid rgba(233, 98, 172, 1) !important ;
+  // border: 2px solid rgba(233, 98, 172, 1) !important ;
   transform: translate(30px) !important;
 }
 .h-clicked {
-  border: 2px solid rgba(174, 73, 214, 1) !important;
+  // border: 2px solid rgba(174, 73, 214, 1) !important;
   transform: translate(30px) !important;
 }
 
 .addTransition {
-  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, border 0.5s ease;
 }
 
 .moveup-enter-active {
