@@ -131,7 +131,7 @@ export default {
 body {
   overflow-x: hidden;
   background-color: #fcf4f2;
-  background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+  background-image: url("https://www.transparenttextures.com/patterns/polaroid.png");
 }
 
 #app {
@@ -175,7 +175,7 @@ body {
       width: 0.6rem;
       height: 0.6rem;
       border-radius: 50%;
-      background: #fcf4f2;
+      background: #F1F0F0;
       box-shadow: inset 0 2px 2px 1px rgba(184, 177, 176, 0.5);
     }
 
@@ -221,7 +221,7 @@ body {
     }
 
     &:nth-child(1) {
-      background: #b0c5ee;
+      background: #b5ceff;
       background-image: url("https://www.transparenttextures.com/patterns/lined-paper-2.png");
       &:after {
         background-color: #b0c5ee;

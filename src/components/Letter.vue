@@ -94,7 +94,7 @@ export default {
     position: absolute;
     width: 1.2em;
     height: 1.2em;
-    background: #fcf4f2;
+    background: #F1F0F0;
     box-shadow: inset 0 5px 5px 2px rgba(184, 177, 176, 0.5);
     border-radius: 50%;
     left: 2.5em;

@@ -123,7 +123,7 @@ export default {
     .inside {
       width: 8em;
       height: 5.25em;
-      background: #7ea9ff;
+      background: #6f9cf7;
       background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
       clip-path: polygon(50% 50%, 0 0, 100% 0);
       border-radius: 3px;
