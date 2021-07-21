@@ -1,23 +1,118 @@
 <template>
-  <div class="letter">
-    <div class="hole1"></div>
-    <div class="hole2"></div>
-    <div class="hole3"></div>
-    <div class="hole4"></div>
+  <div ref="letter" class="letter">
+    <div ref="line" class="line"></div>
+    <div class="hole h1"></div>
+    <div class="hole h2"></div>
+    <div class="hole h3"></div>
+    <div class="hole h4"></div>
     <p>{{ content }}</p>
+    <img class="hart" v-if="section === 1" src="@/assets/hart.png" alt="hart" />
+    <img class="lazo" v-if="section === 2" src="@/assets/lazo.png" alt="lazo" />
+    <img class="rama" v-if="section === 3" src="@/assets/rama.png" alt="rama" />
+    <img
+      class="arrowhart"
+      v-if="section === 4"
+      src="@/assets/arrowhart.png"
+      alt="arrowhart"
+    />
+    <img
+      class="flechalazo"
+      v-if="section === 5"
+      src="@/assets/flechalazo.png"
+      alt="flechalazo"
+    />
+    <img
+      class="firma"
+      v-if="section === 6"
+      src="@/assets/firma.png"
+      alt="firma"
+    />
   </div>
 </template>
 
 <script>
 export default {
   name: "Letter",
-  data() {
-    return {
-      content:
-        "Hi Joanna,\n\n Sorry it has taken so long for me to write back.\
-        I kind of wanted to make it up to you so I designed and coded this website.\
-        Don't judge me too harsh, I'm pretty bad designer and writter",
-    };
+  props: {
+    content: {
+      type: String,
+      required: true,
+    },
+    section: {
+      type: Number,
+      required: true,
+      default: 1,
+    },
+  },
+  watch: {
+    content() {
+      this.resizeLetterElements();
+    },
+  },
+  methods: {
+    removeElementsByClass(className) {
+      const elements = document.getElementsByClassName(className);
+      while (elements.length > 0) {
+        elements[0].parentNode.removeChild(elements[0]);
+      }
+    },
+    resizeLetterElements() {
+      this.removeElementsByClass("newHole");
+      this.$nextTick(() => {
+        this.$refs.line.style.height = "0px";
+        const increase =
+          this.$refs.letter.scrollHeight -
+          this.$refs.letter.offsetHeight * 0.87;
+        const numberOfHoles =
+          ((increase / (this.$refs.letter.offsetHeight * 0.87)) * 100) / 25;
+        for (let i = 1; i < Math.floor(numberOfHoles); i++) {
+          let newHole = document.createElement("div");
+          newHole.classList.add("newHole");
+          let topDistance = 87 + i * 25;
+          newHole.style.cssText = `
+            position: absolute;
+            width: 1.2em;
+            height: 1.2em;
+            background: #f1f0f0;
+            box-shadow: inset 0 5px 5px 2px rgba(184, 177, 176, 0.5);
+            border-radius: 50%;
+            left: 2.5em;
+            z-index: 3;
+            top: ${topDistance}%;
+          `;
+          this.$refs.letter.appendChild(newHole);
+        }
+
+        this.$refs.line.style.height = this.$refs.letter.scrollHeight + "px";
+      });
+    },
+  },
+  mounted() {
+    const increase =
+      this.$refs.letter.scrollHeight - this.$refs.letter.offsetHeight * 0.87;
+    const numberOfHoles =
+      ((increase / (this.$refs.letter.offsetHeight * 0.87)) * 100) / 25;
+    for (let i = 1; i < Math.floor(numberOfHoles); i++) {
+      let newHole = document.createElement("div");
+      newHole.classList.add("newHole");
+      let topDistance = 87 + i * 25;
+      newHole.style.cssText = `
+        position: absolute;
+        width: 1.2em;
+        height: 1.2em;
+        background: #f1f0f0;
+        box-shadow: inset 0 5px 5px 2px rgba(184, 177, 176, 0.5);
+        border-radius: 50%;
+        left: 2.5em;
+        z-index: 3;
+        top: ${topDistance}%;
+      `;
+      this.$refs.letter.appendChild(newHole);
+    }
+
+    this.$refs.line.style.height = this.$refs.letter.scrollHeight + "px";
+
+    window.onresize = this.resizeLetterElements;
   },
 };
 </script>
@@ -32,40 +127,28 @@ export default {
   box-shadow: 0px 0px 5px rgba($color: #b8b1b0, $alpha: 0.4);
   position: relative;
   padding: 4rem 3rem 3rem 8rem;
+  overflow-y: auto;
+  overflow-x: hidden;
 
-  &:after {
-    content: "";
-    height: 2px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    clip-path: polygon(
-      0% 0%,
-      5% 100%,
-      10% 0%,
-      15% 100%,
-      20% 0%,
-      25% 100%,
-      30% 0%,
-      35% 100%,
-      40% 0%,
-      45% 100%,
-      50% 0%,
-      55% 100%,
-      60% 0%,
-      65% 100%,
-      70% 0%,
-      75% 100%,
-      80% 0%,
-      85% 100%,
-      90% 0%,
-      95% 100%,
-      100% 0%
-    );
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: transparent;
   }
-  &:after {
-    background-color: #fdfeff;
-    bottom: -2px;
+  &::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    border: 2px solid #d5dbe0;
+    background-color: #d5dbe070;
+  }
+  &::-webkit-scrollbar-track-piece:start {
+    margin-top: 12px;
+  }
+  &::-webkit-scrollbar-track-piece:end {
+    margin-bottom: 12px;
   }
 
   p {
@@ -77,40 +160,71 @@ export default {
     white-space: pre-line;
   }
 
-  &::before {
-    content: "";
-    height: inherit;
+  img {
+    position: absolute;
+    top: 0.5em;
+    right: 4em;
+    height: auto;
+  }
+
+  .lazo,
+  .rama {
+    top: 1.5em;
+    width: 13em;
+  }
+
+  .arrowhart {
+    top: 1.5em;
+    width: 8em;
+    height: auto;
+  }
+  .flechalazo {
+    top: 1.5em;
+    width: 7em;
+    height: auto;
+  }
+
+  .hart {
+    top: 2em;
+    width: 13em;
+  }
+
+  .firma {
+    position: static;
+    width: 10em;
+    height: auto;
+  }
+
+  .line {
     width: 2px;
     position: absolute;
     background: #dea5a4;
     left: 6em;
     top: 0;
+    bottom: 0;
   }
 
-  .hole1,
-  .hole2,
-  .hole3,
-  .hole4 {
+  .hole {
     position: absolute;
     width: 1.2em;
     height: 1.2em;
-    background: #F1F0F0;
+    background: #f1f0f0;
     box-shadow: inset 0 5px 5px 2px rgba(184, 177, 176, 0.5);
     border-radius: 50%;
     left: 2.5em;
     z-index: 3;
   }
 
-  .hole1 {
+  .h1 {
     top: 12%;
   }
-  .hole2 {
+  .h2 {
     top: 37%;
   }
-  .hole3 {
+  .h3 {
     top: 62%;
   }
-  .hole4 {
+  .h4 {
     top: 87%;
   }
 

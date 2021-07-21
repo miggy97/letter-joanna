@@ -90,7 +90,7 @@ export default {
   // }
   // &:hover .fold-wrap {
   //   transform: scaleY(-1);
-  //   filter: drop-shadow(0px -1px 0px #7ea9ff);
+  //   filter: drop-shadow(0px -1px 0px #6f9cf7);
   //   transition: transform 0.4s ease 0s;
   // }
   // &:hover .msg-wrap {
@@ -108,7 +108,7 @@ export default {
     .fold {
       width: 8em;
       height: 5.25em;
-      background: #7ea9ff;
+      background: #6f9cf7;
       background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
       clip-path: polygon(50% 50%, 0 0, 100% 0);
       border-radius: 3px;
@@ -123,7 +123,7 @@ export default {
     .inside {
       width: 8em;
       height: 5.25em;
-      background: #6f9cf7;
+      background: #5990ff;
       background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
       clip-path: polygon(50% 50%, 0 0, 100% 0);
       border-radius: 3px;
@@ -153,7 +153,7 @@ export default {
   .body {
     width: 100%;
     height: 100%;
-    background: #7ea9ff;
+    background: #6f9cf7;
     background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
     border-radius: 3px;
 
@@ -183,7 +183,7 @@ export default {
 }
 .fold-wrap-transition {
   transform: scaleY(-1);
-  filter: drop-shadow(0px -1px 0px #7ea9ff);
+  filter: drop-shadow(0px -1px 0px #6f9cf7);
   transition: transform 0.4s ease 0.5s;
 }
 .msg-wrap-transition {
