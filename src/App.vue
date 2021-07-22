@@ -178,8 +178,6 @@ export default {
           this.sectionNum = 6;
           break;
       }
-
-      console.log(this.isIntro);
     },
     showLetter() {
       setTimeout(() => {
@@ -223,6 +221,12 @@ export default {
   box-sizing: border-box;
 }
 
+*,
+*:focus,
+*:hover {
+  outline: none;
+}
+
 body {
   overflow-x: hidden;
   background-color: #fcf4f2;
@@ -252,7 +256,6 @@ body {
   button {
     border-radius: 2px;
     padding: 0.5em 2em;
-    // border: 2px solid #fcf4f2;
     border: none;
     font-family: "Yomogi", cursive;
     font-size: 1em;
@@ -364,27 +367,21 @@ body {
 }
 
 .i-clicked {
-  // border: 2px solid rgba(68, 132, 244, 1) !important;
   transform: translate(30px) !important;
 }
 .s-clicked {
-  // border: 2px solid rgba(126, 212, 72, 1) !important;
   transform: translate(30px) !important;
 }
 .w-clicked {
-  // border: 2px solid rgba(241, 173, 62, 1) !important ;
   transform: translate(30px) !important;
 }
 .l-clicked {
-  // border: 2px solid rgba(233, 98, 172, 1) !important ;
   transform: translate(30px) !important;
 }
 .h-clicked {
-  // border: 2px solid rgba(174, 73, 214, 1) !important;
   transform: translate(30px) !important;
 }
 .g-clicked {
-  // border: 2px solid rgba(174, 73, 214, 1) !important;
   transform: translate(30px) !important;
 }
 
